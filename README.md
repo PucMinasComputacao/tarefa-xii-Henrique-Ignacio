@@ -15,8 +15,8 @@ Tratamento básico de erros em requisições
 
 ## Informações Gerais
 
-- Nome:
-- Matricula:
+- Nome: Henrique Ignacio Ferreira Souza  
+- Matricula: 1638573
 
 ## Prints do trabalho
 

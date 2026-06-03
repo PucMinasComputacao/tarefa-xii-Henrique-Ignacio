@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Filmes</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+
+  <header>
+    <h1>🎬 Catálogo de Filmes</h1>
+    <p class="subtitle">Powered by The Movie DB</p>
+  </header>
+
+  <main>
+    <section class="search-area">
+      <input
+        id="search"
+        type="text"
+        placeholder="Buscar filme..."
+        autocomplete="off"
+      />
+      <button id="btnSearch">Buscar</button>
+
+      <select id="filter">
+        <option value="popular">Populares</option>
+        <option value="top_rated">Mais Bem Avaliados</option>
+        <option value="now_playing">Em Cartaz</option>
+        <option value="upcoming">Em Breve</option>
+      </select>
+    </section>
+
+    <p id="message"></p>
+
+    <div id="movie-list"></div>
+  </main>
+
+  <footer>
+    <p>Henrique Ignacio Ferreira Souza &mdash; Matrícula: 1638573</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
