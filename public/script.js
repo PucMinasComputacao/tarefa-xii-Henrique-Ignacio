@@ -6,10 +6,8 @@ async function fetchMovies(query = "") {
   let url;
 
   if (query.trim() !== "") {
-    // Pesquisa por nome
     url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=pt-BR&query=${encodeURIComponent(query)}`;
   } else {
-    // Filtro por categoria
     const filter = document.getElementById("filter").value;
     url = `${BASE_URL}/movie/${filter}?api_key=${API_KEY}&language=pt-BR`;
   }
@@ -24,9 +22,6 @@ async function fetchMovies(query = "") {
   return data.results;
 }
 
-// -------------------------------------------------------
-// 2) Cria um card HTML para cada filme
-// -------------------------------------------------------
 function createMovieCard(movie) {
   const card = document.createElement("div");
   card.classList.add("movie-card");
@@ -62,9 +57,6 @@ function createMovieCard(movie) {
   return card;
 }
 
-// -------------------------------------------------------
-// 3) Renderiza todos os cards no container
-// -------------------------------------------------------
 function renderMovies(movies) {
   const container = document.getElementById("movie-list");
   container.innerHTML = "";
@@ -81,17 +73,12 @@ function renderMovies(movies) {
   });
 }
 
-// -------------------------------------------------------
-// 4) Exibe mensagem de status (carregando, erro, vazio)
-// -------------------------------------------------------
+
 function showMessage(text) {
   const msg = document.getElementById("message");
   msg.textContent = text;
 }
 
-// -------------------------------------------------------
-// 5) Inicializa a página
-// -------------------------------------------------------
 async function init() {
   showMessage("Carregando filmes...");
   try {
@@ -103,11 +90,6 @@ async function init() {
   }
 }
 
-// -------------------------------------------------------
-// Eventos
-// -------------------------------------------------------
-
-// Botão buscar
 document.getElementById("btnSearch").addEventListener("click", async () => {
   const query = document.getElementById("search").value;
   showMessage("Buscando...");
@@ -120,14 +102,12 @@ document.getElementById("btnSearch").addEventListener("click", async () => {
   }
 });
 
-// Enter no campo de busca
 document.getElementById("search").addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
     document.getElementById("btnSearch").click();
   }
 });
 
-// Mudança no filtro de categoria
 document.getElementById("filter").addEventListener("change", async () => {
   document.getElementById("search").value = "";
   showMessage("Carregando...");
@@ -140,5 +120,4 @@ document.getElementById("filter").addEventListener("change", async () => {
   }
 });
 
-// Inicia ao carregar a página
 init();
